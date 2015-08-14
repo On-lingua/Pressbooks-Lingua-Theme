@@ -1,2 +1,2 @@
-# Pressbooks-Metadata
-Extended features for Pressbooks (Metadata and Theme)
+# Pressbooks-Lingua-Theme
+Theme for Pressbooks 
