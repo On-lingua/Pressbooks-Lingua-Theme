@@ -20,6 +20,11 @@ Tags: Pressbooks Textbook Metadata
     background-repeat: no-repeat;
     background-position: 50% 36%;
 }
+#booknav .related-books-btn a {
+    background-image: url("images/related.png");
+    background-repeat: no-repeat;
+    background-position: 50% 36%;
+}
 /* Extra sidebar button pop-up */
 #page-meta, #related-books, #sidebar-search {
     background: #eeeeee;
@@ -145,3 +150,7 @@ h1.book-title-custom {
 .wrapper #content .entry-title {
     margin: 10px auto 3em;
 }
+.single #content {
+    min-height: 405px;
+}
+   
