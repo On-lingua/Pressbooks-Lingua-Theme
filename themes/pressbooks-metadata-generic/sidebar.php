@@ -10,8 +10,14 @@
 			<?php if (current_user_can_for_blog($blog_id, 'edit_posts') || is_super_admin()): ?>
 				<li class="admin-btn"><a href="<?php echo get_option('home'); ?>/wp-admin"><?php _e('Admin', 'pressbooks'); ?></a></li>
 			<?php endif; ?>
-		
-				<li class="home-btn"><a href="<?php echo get_option('home'); ?>"><?php _e('Home', 'pressbooks'); ?></a></li>
+		  <?php
+                                                        $pathparts=explode('/', site_url());
+                                                        $length=count($pathparts);
+                                                        unset($pathparts[$length-1]);
+                                                        array_values($pathparts);  
+                                                        $filepath=implode('/', $pathparts)
+                                                        ?>
+				<li class="home-btn"><a href="<?php echo $filepath; ?>"><?php _e('Library', 'pressbooks'); ?></a></li>
 
 		<!-- TOC button always there -->
 				<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
@@ -21,6 +27,9 @@
 			<?php if ( has_related_books_enabled() ): ?>
 				<li class="related-books-btn"><a href="#"><?php echo 'Related Books'; ?></a></li>
 			<?php endif; ?>
+                                <!-- search -->
+				<li class="search-btn"><a href="#"><?php echo 'Search'; ?></a></li>
+                                
 			</ul>
 
 		<!-- Pop out TOC only on READ pages -->
@@ -108,6 +117,10 @@
 				<?php print_related_books_fields(); ?>
 			</div><!-- end #related-books -->
 		<?php endif; ?>
+                        	<div id="sidebar-search">
+				<a href="#" class="close"><?php _e('Close', 'pressbooks'); ?></a>
+				   <?php get_search_form(); ?>
+			</div><!-- end #related-books -->
 		<?php endif; ?>
 
 

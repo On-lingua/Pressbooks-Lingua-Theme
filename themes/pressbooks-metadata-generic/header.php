@@ -81,14 +81,20 @@ if ( is_front_page() ) {
 			<div class="nav-container">
 				<nav>
 			
-			 		<!-- Book Title -->
-					<h1 class="book-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			    
+			 		
 					    <div class="sub-nav-left">
 							<!-- Logo -->
-							<h2 class="pressbooks-logo"><a href="#"><?php echo get_site_option('site_name'); ?></a></h2>
+                                                        <?php
+                                                        $pathparts=explode('/', site_url());
+                                                        $length=count($pathparts);
+                                                        unset($pathparts[$length-1]);
+                                                        array_values($pathparts);  
+                                                        $filepath=implode('/', $pathparts)
+                                                        ?>
+                                                        <h2 class="pressbooks-logo"><a href="<?php echo $filepath; ?>"><img src="<?php echo site_url().'/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-metadata-generic/On_lingua.png';?>" alt="On Lingua Logo" height="7%" width="7%"><span style="vertical-align: top;">On Lingua</span></a></h2>
 					    </div> <!-- end .sub-nav-left -->
 			    
+                                
 			    <div class="sub-nav-right">
 			    
 					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
@@ -101,23 +107,22 @@ if ( is_front_page() ) {
 						<?php get_template_part( 'content', 'social-header' ); ?> 
 				
 				</div> <!-- end .sub-nav-right -->
-			</nav>
-			      
-			  <div class="sub-nav">   
-			     <div class="alignright pullleft">
-				     <?php get_search_form(); ?>
-			     </div>			     
+                                
+                          		     
 				  <!-- Author Name -->   
-			    <div class="author-wrap"> 
+			    <div class="author-wrap">
+                                <a href="<?php echo site_url(); ?>">
+                                <!-- Book Title -->
+					<h1 class="book-title-custom"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></h1>
+			    
 			    	<?php $metadata = pb_get_book_information(); ?>
 					<?php if ( ! empty( $metadata['pb_author'] ) ): ?>
-				    <h3><?php echo $metadata['pb_author']; ?></h3>
+				    by <h3><?php echo $metadata['pb_author']; ?></h3>
 		     		<?php endif; ?>
+                                    </a>
 			     </div> <!-- end .author-name -->
-
-			  </div><!-- end sub-nav -->  
-			    
-				 
+			</nav>
+        
 		</div> <!-- end .nav-container -->
 
 	<div class="wrapper"><!-- for sitting footer at the bottom of the page -->	    
