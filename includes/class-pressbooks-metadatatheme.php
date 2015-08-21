@@ -141,13 +141,9 @@ class Pressbooks_Metadatatheme {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
-		$plugin_admin = new Pressbooks_Metadatatheme_Admin( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$plugin_admin = new Pressbooks_Metadatatheme_Admin( $this->get_plugin_name(), $this->get_version() );		
+		$this->loader-> add_action( 'admin_bar_menu',$plugin_admin,'remove_add_new_book', 999 );
 		$this->loader->add_action( 'pressbooks_new_blog', $plugin_admin, 'new_book' );
-
 	}
 
 

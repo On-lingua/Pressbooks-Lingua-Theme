@@ -56,5 +56,12 @@ class Pressbooks_Metadatatheme_Admin {
 		switch_theme( 'pressbooks-metadatatheme-generic' );
 
 	}
+  
+
+function remove_add_new_book( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'add-new-book' );
+       
+}
+        
 
 }

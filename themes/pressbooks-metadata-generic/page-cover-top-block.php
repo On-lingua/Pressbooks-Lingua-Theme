@@ -41,8 +41,15 @@
 			
 				<?php if ( ! empty( $metadata['pb_cover_image'] ) ): ?>
 				<div class="book-cover">
-				
-						<img src="<?php echo $metadata['pb_cover_image']; ?>" alt="book-cover" title="<?php bloginfo( 'name' ); ?> book cover" />
+				     <?php
+                                                        $pathparts=explode('/', site_url());
+                                                        $length=count($pathparts);
+                                                        unset($pathparts[$length-1]);
+                                                        array_values($pathparts);  
+                                                        $filepath=implode('/', $pathparts);
+                                                                $bookcoverpath=$filepath.'/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-metadata-generic/images/lingua_book_cover.jpg';
+                                                        ?>
+						<img src="<?php echo $bookcoverpath; ?>" alt="lingua-book-cover" title="lingua book cover" />
 					
 				</div>	
 				<?php endif; ?>

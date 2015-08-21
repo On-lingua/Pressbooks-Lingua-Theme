@@ -5,12 +5,9 @@
 	<div id="sidebar">
 
 		<ul id="booknav">
-		<!-- If Logged in show ADMIN -->
-			<?php global $blog_id; ?>
-			<?php if (current_user_can_for_blog($blog_id, 'edit_posts') || is_super_admin()): ?>
-				<li class="admin-btn"><a href="<?php echo get_option('home'); ?>/wp-admin"><?php _e('Admin', 'pressbooks'); ?></a></li>
-			<?php endif; ?>
-		  <?php
+		
+		  <!-- filepath to -->
+                            <?php
                                                         $pathparts=explode('/', site_url());
                                                         $length=count($pathparts);
                                                         unset($pathparts[$length-1]);
@@ -22,14 +19,19 @@
 		<!-- TOC button always there -->
 				<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>
 		<!-- Metadata button always there -->
-				<li class="page-meta-btn"><a href="#"><?php echo 'Page Info'; ?></a></li>
+		<li class="search-btn"><a href="#"><?php echo 'Search'; ?></a></li>
+                <li class="page-meta-btn"><a href="#"><?php echo 'Page Info'; ?></a></li>
 		<!-- Related books button present only if the option is enabled -->
 			<?php if ( has_related_books_enabled() ): ?>
 				<li class="related-books-btn"><a href="#"><?php echo 'Related Books'; ?></a></li>
 			<?php endif; ?>
                                 <!-- search -->
-				<li class="search-btn"><a href="#"><?php echo 'Search'; ?></a></li>
-                                
+                                <!-- If Logged in show ADMIN -->
+			<?php global $blog_id; ?>
+			<?php if (current_user_can_for_blog($blog_id, 'edit_posts') || is_super_admin()): ?>
+				<li class="admin-btn"><a href="<?php echo get_option('home'); ?>/wp-admin"><?php _e('Admin', 'pressbooks'); ?></a></li>
+			<?php endif; ?>
+				
 			</ul>
 
 		<!-- Pop out TOC only on READ pages -->

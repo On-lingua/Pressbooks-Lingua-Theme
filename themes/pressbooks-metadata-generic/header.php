@@ -91,7 +91,7 @@ if ( is_front_page() ) {
                                                         array_values($pathparts);  
                                                         $filepath=implode('/', $pathparts)
                                                         ?>
-                                                        <h2 class="pressbooks-logo"><a href="<?php echo $filepath; ?>"><img src="<?php echo site_url().'/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-metadata-generic/On_lingua.png';?>" alt="On Lingua Logo" height="7%" width="7%"><span style="vertical-align: top;">On Lingua</span></a></h2>
+                                                        <h2 class="lingua-logo"><a href="<?php echo $filepath; ?>">On Lingua</a></h2>
 					    </div> <!-- end .sub-nav-left -->
 			    
                                 
@@ -110,14 +110,14 @@ if ( is_front_page() ) {
                                 
                           		     
 				  <!-- Author Name -->   
-			    <div class="author-wrap">
+			    <div class="book_name_author">
                                 <a href="<?php echo site_url(); ?>">
                                 <!-- Book Title -->
-					<h1 class="book-title-custom"><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></h1>
+                                <p><?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></p>
 			    
 			    	<?php $metadata = pb_get_book_information(); ?>
 					<?php if ( ! empty( $metadata['pb_author'] ) ): ?>
-				    by <h3><?php echo $metadata['pb_author']; ?></h3>
+				   <?php echo '<p>by '.$metadata['pb_author'].'</p>'; ?>
 		     		<?php endif; ?>
                                     </a>
 			     </div> <!-- end .author-name -->
