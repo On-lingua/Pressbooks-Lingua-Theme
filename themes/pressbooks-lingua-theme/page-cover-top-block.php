@@ -47,7 +47,7 @@
                                                         unset($pathparts[$length-1]);
                                                         array_values($pathparts);  
                                                         $filepath=implode('/', $pathparts);
-                                                                $bookcoverpath=$filepath.'/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-metadata-generic/images/lingua_book_cover.jpg';
+                                                                $bookcoverpath=$filepath.'/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-lingua-theme/images/lingua_book_cover.jpg';
                                                         ?>
 						<img src="<?php echo $bookcoverpath; ?>" alt="lingua-book-cover" title="lingua book cover" />
 					
