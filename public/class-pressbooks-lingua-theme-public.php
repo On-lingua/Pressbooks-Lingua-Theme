@@ -10,7 +10,7 @@
  * @subpackage Pressbooks_Lingua_Theme/public
  * @author     23yesil <yigityesilpinar@gmail.com>
  */
-class Pressbooks_Metadatatheme_Public {
+class Pressbooks_Lingua_Theme_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -72,11 +72,11 @@ class Pressbooks_Metadatatheme_Public {
 		} 
               $level=$level? strtolower($level):'';
               if(empty($level)){
-                  wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-metadata-public.css', array(), $this->version, 'all' );
+                  wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public.css', array(), $this->version, 'all' );
               }
               else{
                   
-                    wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-metadata-public-'.$level.'.css', array(), $this->version, 'all' ); 
+                    wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public-'.$level.'.css', array(), $this->version, 'all' ); 
               }
 		
 

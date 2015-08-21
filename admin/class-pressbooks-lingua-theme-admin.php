@@ -10,7 +10,7 @@
  * @subpackage Pressbooks_Lingua_Theme/includes
  * @author     23yesil <yigityesilpinar@gmail.com>
  */
-class Pressbooks_Metadatatheme_Admin {
+class Pressbooks_Lingua_Theme_Admin {
 
 	/**
 	 * The ID of this plugin.
@@ -53,7 +53,7 @@ class Pressbooks_Metadatatheme_Admin {
 	 */
 	public function new_book() {
 
-		switch_theme( 'pressbooks-metadatatheme-generic' );
+		switch_theme( 'pressbooks-lingua-theme' );
 
 	}
   

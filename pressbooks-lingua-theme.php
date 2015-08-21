@@ -34,28 +34,27 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-pressbooks-metadata-activator.php
  */
-function activate_pressbooks_metadatatheme() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-metadatatheme-activator.php';
-	Pressbooks_Metadatatheme_Activator::activate();
+function activate_pressbooks_lingua_theme() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-lingua-theme-activator.php';
+	Pressbooks_Lingua_Theme_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-pressbooks-metadata-deactivator.php
  */
-function deactivate_pressbooks_metadatatheme() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-metadatatheme-deactivator.php';
-	Pressbooks_Metadatatheme_Deactivator::deactivate();
+function deactivate_pressbooks_lingua_theme() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-lingua-theme-deactivator.php';
+	Pressbooks_Lingua_Theme_Deactivator::deactivate();
 }
-
-register_activation_hook( __FILE__, 'activate_pressbooks_metadatatheme' );
-register_deactivation_hook( __FILE__, 'deactivate_pressbooks_metadatatheme' );
+register_activation_hook( __FILE__, 'activate_pressbooks_lingua_theme' );
+register_deactivation_hook( __FILE__, 'deactivate_pressbooks_lingua_theme' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * dashboard-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-metadatatheme.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-lingua-theme.php';
 
 /**
  * Begins execution of the plugin.
@@ -66,10 +65,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-pressbooks-metadatatheme.p
  *
  * @since    0.1
  */
-function run_pressbooks_metadatatheme() {
+function run_pressbooks_lingua_theme() {
 
-	$plugin = new Pressbooks_Metadatatheme();
+	$plugin = new Pressbooks_Lingua_Theme();
 	$plugin->run();
 
 }
-run_pressbooks_metadatatheme();
+run_pressbooks_lingua_theme();

@@ -9,7 +9,7 @@
  * @subpackage Pressbooks_Lingua_Theme/includes
  * @author     23yesil <yigityesilpinar@gmail.com>
  */
-class Pressbooks_Metadatatheme_Deactivator {
+class Pressbooks_Lingua_Theme_Deactivator {
 
 	/**
 	 * Short Description. (use period)

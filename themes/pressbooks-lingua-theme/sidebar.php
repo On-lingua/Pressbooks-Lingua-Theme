@@ -7,14 +7,24 @@
 		<ul id="booknav">
 		
 		  <!-- filepath to -->
-                            <?php
-                                                        $pathparts=explode('/', site_url());
-                                                        $length=count($pathparts);
-                                                        unset($pathparts[$length-1]);
-                                                        array_values($pathparts);  
-                                                        $filepath=implode('/', $pathparts)
+        <?php
+        $pathparts=explode('/', site_url());
+        $length=count($pathparts);
+        unset($pathparts[$length-1]);
+        array_values($pathparts);  
+        $filepath=implode('/', $pathparts);
+        $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+	$meta=$pm_BM->get_current_metadata_flat();
+        foreach ( $meta as $key=>$elt ) {
+                        if($elt->get_name()==='Target language'){
+                            $target=$elt->get_value();
+                        }
+			
+		} 
+              $target=$target? strtolower($target):'';
+                                                                
                                                         ?>
-				<li class="home-btn"><a href="<?php echo $filepath; ?>"><?php _e('Library', 'pressbooks'); ?></a></li>
+                  <li id="flag_li" class="home-btn"><a class="<?php echo $target;?>" href="<?php echo $filepath; ?>"><?php _e('Library', 'pressbooks'); ?></a></li>
 
 		<!-- TOC button always there -->
 				<li class="toc-btn"><a href="<?php echo get_option('home'); ?>/table-of-contents"><?php _e('Table of Contents', 'pressbooks'); ?></a></li>

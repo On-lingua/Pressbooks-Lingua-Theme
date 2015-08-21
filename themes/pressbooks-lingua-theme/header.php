@@ -100,7 +100,7 @@ if ( is_front_page() ) {
 					    <?php if ( @array_filter( get_option( 'pressbooks_ecommerce_links' ) ) ) : ?>
 					    <!-- Buy -->
 					    <div class="buy">
-							<a href="<?php echo get_option('home'); ?>/buy" class="button-red"><?php _e('Buy', 'pressbooks'); ?></a>
+							<a href="<?php echo get_option('home'); ?>/buy" class="button-red">Download</a>
 						</div>
 						<?php endif; ?>	
 						

@@ -1,4 +1,13 @@
-jQuery(document).ready(function(){
+jQuery(document).ready(function () {
+    var http = location.protocol;
+    var slashes = http.concat("//");
+    var host = slashes.concat(window.location.hostname);
+    var plugin_url = host.concat('/wp-content/plugins/Pressbooks-Lingua-Theme/themes/pressbooks-lingua-theme/images/langs/');
+    var lang_code = jQuery('#flag_li').find('a').attr('class');
+    var image = plugin_url + lang_code + '.png';
+    if (lang_code !== 'none') {
+        jQuery('#flag_li').find('a').css("background-image", "url(" + image + ")");
+    }
 
 	jQuery('#page-meta').hide();
 	jQuery('.page-meta-btn a, #page-meta a.close').live('click', function() {

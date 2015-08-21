@@ -11,7 +11,7 @@
  * @subpackage Pressbooks_Lingua_Theme/includes
  * @author     23yesil <yigityesilpinar@gmail.com>
  */
-class Pressbooks_Metadatatheme_Loader {
+class Pressbooks_Lingua_Theme_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

@@ -13,7 +13,7 @@
  * @subpackage Pressbooks_Lingua_Theme/includes
  * @author     23yesil <yigityesilpinar@gmail.com>
  */
-class Pressbooks_Metadatatheme {
+class Pressbooks_Lingua_Theme {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -54,7 +54,7 @@ class Pressbooks_Metadatatheme {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'pressbooks-metadatatheme';
+		$this->plugin_name = 'pressbooks-lingua-theme';
 		$this->version = '0.1';
 
 		$this->load_dependencies();
@@ -86,30 +86,30 @@ class Pressbooks_Metadatatheme {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadatatheme-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-lingua-theme-loader.php';
 
 
 
 		/**
 		 * The class responsible for registering and setting all the themes used by the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadatatheme-themes.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-lingua-theme-themes.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-pressbooks-metadatatheme-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-pressbooks-lingua-theme-admin.php';
                 
                 /**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pressbooks-metadatatheme-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pressbooks-lingua-theme-public.php';
 
 
 
 
-		$this->loader = new Pressbooks_Metadatatheme_Loader();
+		$this->loader = new Pressbooks_Lingua_Theme_Loader();
 
 	}
 
@@ -122,7 +122,7 @@ class Pressbooks_Metadatatheme {
 	 */
 	private function set_themes() {
 
-		$plugin_themes = new Pressbooks_Metadatatheme_Themes( $this->get_plugin_name(), $this->get_version() );
+		$plugin_themes = new Pressbooks_Lingua_Theme_Themes( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'init', $plugin_themes, 'register_directory' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_themes, 'enqueue_custom_themes' );
@@ -141,7 +141,7 @@ class Pressbooks_Metadatatheme {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		$plugin_admin = new Pressbooks_Metadatatheme_Admin( $this->get_plugin_name(), $this->get_version() );		
+		$plugin_admin = new Pressbooks_Lingua_Theme_Admin( $this->get_plugin_name(), $this->get_version() );		
 		$this->loader-> add_action( 'admin_bar_menu',$plugin_admin,'remove_add_new_book', 999 );
 		$this->loader->add_action( 'pressbooks_new_blog', $plugin_admin, 'new_book' );
 	}
@@ -157,7 +157,7 @@ class Pressbooks_Metadatatheme {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Pressbooks_Metadatatheme_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Pressbooks_Lingua_Theme_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 	
